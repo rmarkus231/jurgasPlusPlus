@@ -1,5 +1,7 @@
 #include <wx/wxprec.h>
 #include "app.h"
+#include <vector>
+#include <string>
 
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
@@ -45,10 +47,19 @@ Frame::Frame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	Bind(wxEVT_MENU, &Frame::OnAbout, this, wxID_ABOUT);
 	Bind(wxEVT_MENU, &Frame::OnExit, this, wxID_EXIT);
 
-	wxString buttonStr("testbutton");
-	wxButton* testButton = new wxButton(this);
-	testButton->SetLabel(buttonStr);
-	testButton->SetDefault();
+	vector<wxButton*>* buttonVector = new vector<wxButton*>;
+	wxWindow* window = new wxWindow(this, wxID_ANY);
+	
+	for (auto i = 0; i < 5; i++) {
+		wxButton* btn = new wxButton(window, wxID_ANY);
+		wxString btnStr(to_string(i));
+		btn->SetLabel(btnStr);
+		btn->SetPosition(wxPoint(0, 20 * i));
+		buttonVector->push_back(btn);
+	}
+	
+	window->SetFocus();
+
 }
 
 void Frame::OnAbout(wxCommandEvent& event)
