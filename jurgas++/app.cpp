@@ -1,20 +1,27 @@
 #include <wx/wxprec.h>
+#include <wx/notebook.h>
+#include <wx/sizer.h>
+#include <wx/event.h>
+
 #include "app.h"
 #include <vector>
 #include <string>
+#include <iostream>
 
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
 
 #define ID_MENU_HELLO   1 // Menu Item ID
+#define ID_NOTEBOOK		2
+#define winDefSize wxSize(800,600)
 
 using namespace std;
 
-bool HelloWorld::OnInit()
+bool mainApp::OnInit()
 {
 	// Create main application window
-	Frame* frame = new Frame("Hello World", wxPoint(500, 500), wxSize(300, 300));
+	Frame* frame = new Frame("Jurgas++", wxPoint(500, 200), winDefSize);
 
 	// Display the frame window
 	frame->Show(true);
@@ -34,32 +41,41 @@ Frame::Frame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	wxMenu* menuHelp = new wxMenu;
 	menuHelp->Append(wxID_ABOUT);
 
+	wxMenu* menuMode = new wxMenu;
+	menuMode->AppendSeparator();
+
 	wxMenuBar* menuBar = new wxMenuBar;
 	menuBar->Append(menuFile, "&File");
+	menuBar->Append(menuMode, "&Mode");
 	menuBar->Append(menuHelp, "&Help");
 
 	SetMenuBar(menuBar);
 	CreateStatusBar();
-	SetStatusText("Welcome to wxWidgets!");
+	//SetStatusText("Jurgas++");
 
 	// Register events for this frame
 	Bind(wxEVT_MENU, &Frame::OnHello, this, ID_MENU_HELLO);
 	Bind(wxEVT_MENU, &Frame::OnAbout, this, wxID_ABOUT);
 	Bind(wxEVT_MENU, &Frame::OnExit, this, wxID_EXIT);
+	Bind(wxEVT_SIZE, &Frame::OnResize, this);
 
-	vector<wxButton*>* buttonVector = new vector<wxButton*>;
-	wxWindow* window = new wxWindow(this, wxID_ANY);
-	
-	for (auto i = 0; i < 5; i++) {
-		wxButton* btn = new wxButton(window, wxID_ANY);
-		wxString btnStr(to_string(i));
-		btn->SetLabel(btnStr);
-		btn->SetPosition(wxPoint(0, 20 * i));
-		buttonVector->push_back(btn);
-	}
-	
-	window->SetFocus();
+	//mainSizer = new wxGridSizer(2,this->GetSize());
 
+	mainWin = new wxWindow(this, wxID_ANY);
+	//mainWin->SetSizer(mainSizer);
+	mainWin->SetSize(this->GetSize());
+
+	wxNotebook *mainNotebook = new wxNotebook(mainWin, ID_NOTEBOOK);
+	mainNotebook->SetSize(this->GetSize());
+	//mainNotebook->SetSizer(mainSizer);
+	wxWindow* calc = new wxWindow(mainNotebook, wxID_ANY);
+	wxWindow* questions = new wxWindow(mainNotebook, wxID_ANY);
+
+	mainNotebook->AddPage(questions, wxString("Küsimused"),true);
+	mainNotebook->AddPage(calc, wxString("Kalkulaator"));
+	
+	mainWin->SetFocus();
+	//mainWin->Layout();
 }
 
 void Frame::OnAbout(wxCommandEvent& event)
@@ -67,16 +83,16 @@ void Frame::OnAbout(wxCommandEvent& event)
 	wxMessageBox("This is a wxWidgets Hello World example", "About Hello World", wxOK | wxICON_INFORMATION);
 }
 
-// Event Handler for clicking the Hello Menu item
-// Naviaget to File > Hello in the GUI app
 void Frame::OnHello(wxCommandEvent& event)
 {
 	wxLogMessage("Hello world from wxWidgets!");
 }
 
-// Event handler on clicking the Exit Menu item
-// Navigate to File > Exit in the GUI app
 void Frame::OnExit(wxCommandEvent& event)
 {
 	Close(true);
+}
+
+void Frame::OnResize(wxSizeEvent& event) {
+	SetStatusText(to_string(event.GetSize().x)+" "+ to_string(event.GetSize().y) +"\t"+mainWin->GetWindowChild(ID_NOTEBOOK)->GetName());
 }

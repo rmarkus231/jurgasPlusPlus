@@ -7,4 +7,4 @@
 #include <wx/wx.h>
 #endif
 
-wxIMPLEMENT_APP(HelloWorld);
+wxIMPLEMENT_APP(mainApp);
