@@ -2,8 +2,10 @@
 #include <wx/notebook.h>
 #include <wx/sizer.h>
 #include <wx/event.h>
+#include <wx/textwrapper.h>
 
 #include "app.h"
+#include "tinyXML/tinyxml2.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -59,8 +61,7 @@ Frame::Frame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	Bind(wxEVT_MENU, &Frame::OnExit, this, wxID_EXIT);
 	Bind(wxEVT_SIZE, &Frame::OnResize, this);
 
-	//mainSizer = new wxGridSizer(2,this->GetSize());
-
+	/*
 	mainWin = new wxWindow(this, wxID_ANY);
 	//mainWin->SetSizer(mainSizer);
 	mainWin->SetSize(this->GetSize());
@@ -76,11 +77,37 @@ Frame::Frame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	
 	mainWin->SetFocus();
 	//mainWin->Layout();
+	*/
+
+	panels = new vector<wxPanel*>;
+	mainSizer = new wxBoxSizer(wxVERTICAL);
+	SetSizer(mainSizer);
+	mainSizer->ComputeFittingWindowSize(this);
+
+	panels->push_back(new wxPanel(this,wxID_ANY));
+	panels->push_back(new wxPanel(this, wxID_ANY));
+	panels->push_back(new wxPanel(this, wxID_ANY));
+
+	for (auto i = 0; i < panels->size(); i++) {
+		wxBoxSizer* temp = new wxBoxSizer(wxVERTICAL);
+		mainSizer->Add(panels->at(i),1,wxEXPAND | wxALL,10);
+		panels->at(i)->SetSizer(temp);
+		panels->at(i)->Hide();
+	}
+
+	activePanel = panels->at(0);
+	wxStaticText* staticText = new wxStaticText(activePanel, wxID_ANY, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+	activePanel->GetSizer()->Add(staticText, 1, wxEXPAND | wxALL, 10);
+	activePanel->Show();
+}
+
+void Frame::makePanels() {
+
 }
 
 void Frame::OnAbout(wxCommandEvent& event)
 {
-	wxMessageBox("This is a wxWidgets Hello World example", "About Hello World", wxOK | wxICON_INFORMATION);
+	//wxMessageBox("This is a wxWidgets Hello World example", "About Hello World", wxOK | wxICON_INFORMATION);
 }
 
 void Frame::OnHello(wxCommandEvent& event)
@@ -94,5 +121,9 @@ void Frame::OnExit(wxCommandEvent& event)
 }
 
 void Frame::OnResize(wxSizeEvent& event) {
-	SetStatusText(to_string(event.GetSize().x)+" "+ to_string(event.GetSize().y) +"\t"+mainWin->GetWindowChild(ID_NOTEBOOK)->GetName());
+	if (activePanel) {
+		SetStatusText(to_string(mainSizer->GetSize().x) + " " + to_string(mainSizer->GetSize().y));
+		mainSizer->SetMinSize(event.GetSize());
+		mainSizer->SetSizeHints(activePanel);
+	}
 }
