@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html  dir="ltr" lang="et" xml:lang="et">
+<head>
+    <title>Viga</title>
+    <link rel="shortcut icon" href="https://moodle.ut.ee/theme/image.php/utessential/theme/1450787894/favicon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, Viga" />
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/moodle.ut.ee","sesskey":"UQ3wea8Ny7","loadingicon":"https:\/\/moodle.ut.ee\/theme\/image.php\/utessential\/core\/1450787894\/i\/loading_small","themerev":"1450787894","slasharguments":1,"theme":"utessential","jsrev":"1450787894","svgicons":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''};if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else me.path=component+'/'+component+'.'+me.type};
+YUI_config = {"debug":false,"base":"https:\/\/moodle.ut.ee\/lib\/yuilib\/3.15.0\/","comboBase":"https:\/\/moodle.ut.ee\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui-patched":{"combine":true,"root":"3.15.0_1\/","patterns":{"dd-drag":{"group":"yui-patched"},"dd-gestures":{"group":"yui-patched"}},"modules":{"dd-drag":[],"dd-gestures":[]}},"yui2":{"base":"https:\/\/moodle.ut.ee\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/moodle.ut.ee\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/moodle.ut.ee\/theme\/yui_combo.php?m\/1450787894\/","combine":true,"comboBase":"https:\/\/moodle.ut.ee\/theme\/yui_combo.php?","ext":false,"root":"m\/1450787894\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-checknet":{"requires":["base-base","moodle-core-notification-alert","io-base"]},"moodle-core-formchangechecker":{"requires":["base","event-focus"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core_availability-form":{"requires":["base","node","event","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-calendar-eventmanager":{"requires":["base","node","event-mouseenter","overlay","moodle-calendar-eventmanager-skin"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-toolboxes":{"requires":["node","base","event-key","node","io","moodle-course-coursebase","moodle-course-util"]},"moodle-course-formatchooser":{"requires":["base","node","node-event-simulate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-modchooser":{"requires":["moodle-core-chooserdialogue","moodle-course-coursebase"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-form-showadvanced":{"requires":["node","base","selector-css3"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-passwordunmask":{"requires":["node","base"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-qbankmanager":{"requires":["node","selector-css3"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-qtype_musictheory-musictheoryui":{"requires":["base","node","datatype","panel","dd-plugin"]},"moodle-qtype_musictheory-musictheoryqtype":{"requires":["base","node","datatype","node-event-simulate"]},"moodle-qtype_musictheory-musictheorykeyboardui":{"requires":["base","node","datatype"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-block_navigation-navigation":{"requires":["base","io-base","node","event-synthetic","event-delegate","json-parse"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-editor_atto-editor":{"requires":["node","io","overlay","escape","event","event-simulate","event-custom","yui-throttle","moodle-core-notification-dialogue","moodle-editor_atto-rangy","handlebars","timers"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_grader-scrollview":{"requires":["base","node"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-theme_bootstrapbase-bootstrap":{"requires":["node","selector-css3"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_accordion-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_html-button":{"requires":["moodle-editor_atto-plugin","event-valuechange"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_popup-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-tinymce_mathslate-snippeteditor":{"requires":["json"]},"moodle-tinymce_mathslate-mathjaxeditor":{"requires":["moodle-tinymce_mathslate-snippeteditor","dd-drop"]},"moodle-tinymce_mathslate-dialogue":{"requires":["escape","moodle-local_mathslate-editor","moodle-tinymce_mathslate-editor"]},"moodle-tinymce_mathslate-textool":{"requires":["dd-drag","dd-proxy","dd-drop","event","json"]},"moodle-tinymce_mathslate-editor":{"requires":["dd-drag","dd-proxy","dd-drop","event","tabview","io-base","json","moodle-tinymce_mathslate-textool","moodle-tinymce_mathslate-mathjaxeditor"]}}},"gallery":{"name":"gallery","base":"https:\/\/moodle.ut.ee\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/moodle.ut.ee\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1450787894\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/moodle.ut.ee\/lib\/javascript.php\/1450787894\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/moodle.ut.ee\/lib\/mathjax\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+<link rel="stylesheet" type="text/css" href="https://moodle.ut.ee/theme/yui_combo.php?rollup/3.15.0/yui-moodlesimple-min.css" /><script type="text/javascript" src="https://moodle.ut.ee/theme/yui_combo.php?rollup/3.15.0_1/yui-moodlesimple-min.js&amp;rollup/1450787894/mcore-min.js"></script><script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/core/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/cslider_1.0.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/custom_1.0.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/alert_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/carousel_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/modal_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/scrollspy_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/tab_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/tooltip_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/bootstrap_plugins/transition_2.3.2.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/jquery.php/theme_utessential/modernizr_2.6.2.js"></script>
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://moodle.ut.ee/theme/styles.php/utessential/1450787894/all" />
+<script type="text/javascript" src="https://moodle.ut.ee/lib/javascript.php/1450787894/lib/javascript-static.js"></script>
+<script type="text/javascript" src="https://moodle.ut.ee/theme/javascript.php/utessential/1450787894/head"></script>
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1; IE=9; IE=8; IE=7; IE=EDGE" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15296358-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google web fonts -->
+    	<link href="//fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    <!-- iOS Homescreen Icons -->
+    
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://moodle.ut.ee/theme/image.php/utessential/theme/1450787894/homeicon/iphone" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://moodle.ut.ee/theme/image.php/utessential/theme/1450787894/homeicon/ipad" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://moodle.ut.ee/theme/image.php/utessential/theme/1450787894/homeicon/iphone_retina" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://moodle.ut.ee/theme/image.php/utessential/theme/1450787894/homeicon/ipad_retina" /></head>
+
+<body  id="page-site-index" class="format-site course path-site safari dir-ltr lang-et yui-skin-sam yui3-skin-sam moodle-ut-ee pagelayout-base course-1 context-1 utessential-colours-default has-region-footer-left empty-region-footer-left has-region-footer-middle empty-region-footer-middle has-region-footer-right used-region-footer-right">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Jäta vahele peasisuni</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+
+    <header id="page-header" class="clearfix">
+
+    <div class="container-fluid">
+    <div class="row-fluid">
+    <!-- HEADER: LOGO AREA -->
+                                <div class="span6">
+                            
+                    <a class="logo" href="https://moodle.ut.ee" title="Õpikeskkonna avalehele"></a>
+                            </div>
+                        <div class="span1 pull-right" id="profilepic">
+                <ul class="socials unstyled">
+                    <li>
+                        <a href="https://moodle.ut.ee/user/profile.php?id=54247"><img src="https://secure.gravatar.com/avatar/6eb5f6a3bab7bfeee0cf9bd9c010f82a?s=60&amp;d=mm" alt="Henry Teigar pilt" title="Henry Teigar pilt" class="userpicture defaultuserpic" width="60" height="60" /></a>                    </li>
+                </ul>            
+
+            </div>
+                        <div class="span3 pull-right">
+                <ul class="socials unstyled">
+                                                            <li><a href="https://twitter.com/TartuUniversity" class="twitter" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                                                            <li><a href="https://www.facebook.com/tartuylikool" class="facebook" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                                                                                <li><a href="https://www.youtube.com/user/tartuylikool" class="youtube" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+                                                                                                    <li><a href="http://social.ut.ee" class="sm" target="_blank"><i class="fa fa-sm"></i></a></li>
+                                                                                                                        <li><a href="http://www.ut.ee" class="website" target="_blank"><i class="fa fa-share-square"></i></a></li>
+                                    </ul>
+            </div>
+                        </div>
+        </div>
+    </header>
+
+<header role="banner" class="navbar">
+    <nav role="navigation" class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://moodle.ut.ee">TÜ Moodle</a>
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse collapse">
+                <ul class="nav"><li class="dropdown langmenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Keel"><i class="fa fa-flag"></i>Eesti (et)<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="Deutsch (de)" href="https://moodle.ut.ee/?lang=de">Deutsch (de)</a><li><a title="Eesti (et)" href="https://moodle.ut.ee/?lang=et">Eesti (et)</a><li><a title="English (en)" href="https://moodle.ut.ee/?lang=en">English (en)</a><li><a title="Français (fr)" href="https://moodle.ut.ee/?lang=fr">Français (fr)</a><li><a title="Suomi (fi)" href="https://moodle.ut.ee/?lang=fi">Suomi (fi)</a><li><a title="Русский (ru)" href="https://moodle.ut.ee/?lang=ru">Русский (ru)</a></ul><li class="dropdown"><a href="https://moodle.ut.ee/my/index.php" class="dropdown-toggle" data-toggle="dropdown" title="Minu vahendid"><i class="fa fa-dashboard"></i>Minu vahendid<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="Kasutaja andmed" href="https://moodle.ut.ee/user/profile.php?id=54247"><em><i class="fa fa-user"></i>Kasutaja andmed</em></a><li><a title="Kalender" href="https://moodle.ut.ee/calendar/view.php"><em><i class="fa fa-calendar"></i>Kalender</em></a><li><a title="Sõnumid" href="https://moodle.ut.ee/message/index.php"><em><i class="fa fa-envelope"></i>Sõnumid</em></a><li><a title="Õpimärgid" href="https://moodle.ut.ee/badges/mybadges.php"><em><i class="fa fa-asterisk"></i>Õpimärgid</em></a><li><a title="Privaatsed failid" href="https://moodle.ut.ee/user/files.php"><em><i class="fa fa-file"></i>Privaatsed failid</em></a><li><a title="Välju" href="https://moodle.ut.ee/login/logout.php"><em><i class="fa fa-sign-out"></i>Välju</em></a></ul><li class="dropdown"><a href="https://moodle.ut.ee/my/index.php" class="dropdown-toggle" data-toggle="dropdown" title="Minu kursused"><i class="fa fa-briefcase"></i>Minu kursused<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="LOFY.03.079" href="https://moodle.ut.ee/course/view.php?id=1755">Arvuti arhitektuur ja riistvara I (LOFY.03.079)</a><li><a title="FLKE.01.249" href="https://moodle.ut.ee/course/view.php?id=3603">Erialane inglise keel informaatika üliõpilastele, tase B2 &gt; C1 (FLKE.01.249)</a><li><a title="korgmat" href="https://moodle.ut.ee/course/view.php?id=2880">Kõrgem matemaatika</a><li><a title="2013konf" href="https://moodle.ut.ee/course/view.php?id=2276">Kuidas Tartu Ülikoolis edukas olla? (Mat-Inf tudengid)</a><li><a title="MTMM.00.342" href="https://moodle.ut.ee/course/view.php?id=3403">Matemaatiline maailmapilt (MTMM.00.342)</a><li><a title="MTAT.03.100" href="https://moodle.ut.ee/course/view.php?id=500">Programmeerimine (MTAT.03.100)</a></ul></ul>                <ul class="nav pull-right">
+                    <li></li>
+                    <li class="navbar-text"><div class="logininfo">Oled sisenenud kui <a href="https://moodle.ut.ee/user/profile.php?id=54247" title="Vaata profiili">Henry Teigar</a> (<a href="https://moodle.ut.ee/login/logout.php?sesskey=UQ3wea8Ny7">Välju</a>)</div></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div id="page" class="container-fluid">
+	<!-- Start Main Regions -->
+    <div id="page-content" class="row-fluid">
+        <section id="region-main" class="span12">
+        	<div id="page-navbar" class="clearfix">
+        		<nav class="breadcrumb-button"></nav>
+            	<div class="breadcrumb-nav"><span class="accesshide">Lehe aadress</span><ul class="breadcrumb"><li><a href="https://moodle.ut.ee/my/">Minu kodu</a> <span class="divider"> <span class="accesshide " ><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">&#x25B6;</span> </span></li><li><a href="https://moodle.ut.ee/?redirect=0">Saidi kodu</a></li></ul></div>
+        	</div>
+            <div role="main"><span id="maincontent"></span><div data-rel="fatalerror" class="box errorbox"><p class="errormessage">Vabandame , soovitud faili ei leitud</p><p class="errorcode"><a href="http://docs.moodle.org/27/et/error/moodle/filenotfound">Veel  informatsiooni tekkinud vea kohta</a></p></div><div class="continuebutton"><form method="get" action="https://moodle.ut.ee/course/view.php"><div><input type="submit" value="Jätka" /><input type="hidden" name="id" value="1" /></div></form></div></div>        </section>
+    </div>
+	<!-- End Main Regions -->
+
+	<footer id="page-footer" class="container-fluid">
+			</footer>
+
+    <script type="text/javascript" src="https://moodle.ut.ee/theme/javascript.php/utessential/1450787894/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Viimati muudetud","name":"Nimi","error":"Viga","info":"Informatsioon","ok":"OK","morehelp":"Rohkem abi","loadinghelp":"Laadin...","cancel":"T\u00fchista","yes":"jah","confirm":"Kinnitan","no":"ei","areyousure":"Oled sa kindel?","closebuttontitle":"Sulge","unknownerror":"Tundmatu viga"},"repository":{"type":"T\u00fc\u00fcp","size":"Suurus","invalidjson":"Vigane JSON s\u00f5ne","nofilesattached":"Pole manustatud faile","filepicker":"Faili valimine","logout":"Logi v\u00e4lja","nofilesavailable":"Faile pole","norepositoriesavailable":"Vabandust, \u00fckski praegustest repositooriumitest ei saa tagastada faile n\u00f5utud formaadis.","fileexistsdialogheader":"Faili eksisteerib","fileexistsdialog_editor":"Sellise nimega fail on juba manustatud teksti, mida oled redigeerimas.","fileexistsdialog_filemanager":"Sellise nimega fail on juba manustatud","renameto":"Nimeta \u00fcmber","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Vali"},"admin":{"confirmation":"Kinnitus"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"MathJax.Hub.Config({\r\nconfig: [\"MMLorHTML.js\"],\r\n  jax: [\"input\/TeX\",\"input\/MathML\",\"output\/HTML-CSS\",\"output\/NativeMML\"],\r\n  extensions: [\"tex2jax.js\",\"mml2jax.js\",\"MathMenu.js\",\"MathZoom.js\"],\r\n  TeX: {\r\n    extensions: [\"AMSmath.js\",\"AMSsymbols.js\",\"noErrors.js\",\"noUndefined.js\"]\r\n  },\r\n  menuSettings: {\r\n    zoom: \"Double-Click\",\r\n    mpContext: true,\r\n    mpMouse: true\r\n  },\r\n  errorSettings: { message: [\"[Math Error]\"] }\r\n});","lang":"en"});
+});
+Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+Y.use("moodle-filter_accordion-accordion",function() {M.filter_accordion.accordion.init();
+});
+Y.use("moodle-filter_popup-popup",function() {M.filter_popup.popup.init();
+});
+Y.use("moodle-theme_utessential-coloursswitcher",function() {M.theme_utessential.initColoursSwitcher({"div":".dropdown-menu"});
+});
+Y.use("moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"39912","instance":"39912","candock":false});
+});
+M.util.help_popups.setup(Y);
+Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+ M.util.js_pending('random568177d181b8c2'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random568177d181b8c2'); });
+
+});
+//]]>
+</script>
+
+</div>
+
+<!-- Start Google Analytics -->
+<!-- End Google Analytics -->
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
