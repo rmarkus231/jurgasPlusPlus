@@ -65,7 +65,7 @@ def return_matches_string(content, pattern):
     
     
 filename = "out_data.html"
-db = "data2.db"
+db = "data.db"
 of = "out_data2.html"
 
 html_pattern = r"(?:(?:\n|.)*?)((?:<table class=\"answer\">)(?:\n|.)*?<\/table>(?:\n|.)*?<div class=\"qtext\">(?:\n|.)*?</div>)"
@@ -138,5 +138,5 @@ conn.close()
 print(len(content))
 
 
-with open(outfile,"w",encoding="UTF-8") as f:
-    f.write(content)
+"""with open(outfile,"w",encoding="UTF-8") as f:
+    f.write(content)"""

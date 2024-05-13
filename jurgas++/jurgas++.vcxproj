@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\tinyXML;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\tinyXML;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sqlite\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="binToXML.py" />

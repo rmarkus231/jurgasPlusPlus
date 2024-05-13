@@ -17,7 +17,7 @@ def return_matches_file(filename, pattern):
     #9692647
 
     while True:
-        print("küsimus: ",c)
+        #print("küsimus: ",c)
         match = re.search(pattern, content, re.DOTALL)
         if match:
             #print("match")
@@ -62,6 +62,14 @@ def remove_shit(temp):
     if "<div class=\"qtext\">" in temp:
         temp = temp.replace("<div class=\"qtext\">","")
         temp = temp.replace("</div>","")
+    if "<div>" or "</div>" in temp:
+        temp = temp.replace("<div>","")
+        temp = temp.replace("</div>","")
+    if "<div class=\"qtext\" id" in temp:
+        i1 = temp.index("<div class=\"qtext\" id")
+        i2 = temp.find(">",i1)
+        sub = temp[i1:i2]
+        temp = temp.replace(sub,"")
     return temp
 
 html_pattern = r"(<div class=\"answer\">(?:\n|.)*?<div class=\"qtext\">*(?:.|\n)*?<\/div>)"
@@ -81,7 +89,7 @@ db = "data.db"
 file_path = os.path.join(current_dir, filename)
 db_path = os.path.join(current_dir, db)
 outfile = os.path.join(current_dir,of)
-print(file_path)
+#print(file_path)
 
 #first im getting ALL the data
 html = return_matches_file(file_path,html_pattern)
@@ -94,7 +102,7 @@ print (len(content))
 w = "getting question from: "
 c = 1
 for  i in range(len(html)):
-    print(w,c)
+    #print(w,c)
     temp = return_matches_string(html[i],question_pattern_1)
     #print(temp)
     questions_bad.append(temp)
@@ -107,7 +115,7 @@ for  i in range(len(questions_bad)):
         questions_bad[i] = questions_bad[i].replace(return_matches_string(questions_bad[i],question_pattern_3),"")
     except:
         pass
-    
+            
     temp = return_matches_string(questions_bad[i],question_pattern_2)
     if temp == -1:
         temp = questions_bad[i]
@@ -131,7 +139,7 @@ w = "uploading to db: "
 c = 0
 for i in range(len(questions_bad)):
     #print(questions[i])
-    print(w,i)
+    #print(w,i)
     cursor.execute("INSERT INTO questions (question, content) VALUES (?, ?)", (questions[i],html[i]))
     c+=1
 
