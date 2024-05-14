@@ -1,6 +1,6 @@
 #include <wx/wx.h>
 #include <wx/html/htmlwin.h>
-#include <sqlite3.h>
+#include "sqlite/sqlite3.h"
 #include <string.h>
 
 using namespace std;
@@ -10,7 +10,7 @@ struct MyFrame : public wxFrame {
     wxPanel* panel;
     wxTextCtrl* searchCtrl;
     wxBoxSizer* sizer;
-    wxString* text;
+    wxString* str;
 
     sqlite3* db;
     char* zErrMsg = nullptr;
@@ -18,20 +18,21 @@ struct MyFrame : public wxFrame {
 
     static int callback(void* data, int argc, char** argv, char** azColName) {
         for (int i = 0; i < argc; i++) {
-            static_cast<wxHtmlWindow*>(data)->SetPage(wxString(argv[i], wxConvUTF8));
-        }
+            *(static_cast<wxString*>(data)) += wxString(argv[i], wxConvUTF8);
+        };
         return 0;
     }
 
     MyFrame(const wxString& title)
-        : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(800 , 600)) {
-        rc = sqlite3_open("data.db",&db);
+        : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(800, 600)) {
+        rc = sqlite3_open("data.db", &db);
 
         panel = new wxPanel(this, wxID_ANY);
         searchCtrl = new wxTextCtrl(panel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
+        searchCtrl->Bind(wxEVT_TEXT_ENTER, &MyFrame::OnSearch, this);
         htmlWindow = new wxHtmlWindow(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxHW_SCROLLBAR_AUTO);
-        
-        //*text = searchCtrl->GetLineText(0);
+
+        str = new wxString("", wxConvUTF8);
 
         // Set up a sizer to manage layout
         sizer = new wxBoxSizer(wxVERTICAL);
@@ -41,9 +42,9 @@ struct MyFrame : public wxFrame {
         panel->SetSizer(sizer); // Set the sizer for the panel
     }
 
-    void GetSql() {
-        string sql = "SELECT content FROM questions WHERE queston LIKE %" + text->ToStdString() + "%";
-        rc = sqlite3_exec(db, sql.c_str(), callback, htmlWindow, &zErrMsg);
+    void GetSql(wxString text) {
+        string sql = "SELECT content FROM questions WHERE question LIKE \'%" + text.ToStdString() + "%\';";
+        rc = sqlite3_exec(db, sql.c_str(), callback, str, &zErrMsg);
 
         if (rc) {
             htmlWindow->SetPage("<p> failed to open database <p>");
@@ -52,8 +53,15 @@ struct MyFrame : public wxFrame {
 
     void OnSearch(wxCommandEvent& event) {
         //make this actually work
-        *text = searchCtrl->GetValue();
-        SetStatusText(*text);
+        wxString text = searchCtrl->GetValue();
+        if (text.length() > 5) {
+            str->clear();
+            GetSql(text);
+            htmlWindow->SetPage(*str);
+        }
+        else {
+            htmlWindow->SetPage("<p> Try a longer keyword <p>");;
+        }
     }
 
     void OnResize(wxSizeEvent& event) {
