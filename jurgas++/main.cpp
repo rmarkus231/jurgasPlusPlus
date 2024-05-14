@@ -2,6 +2,7 @@
 #include <wx/html/htmlwin.h>
 #include "sqlite/sqlite3.h"
 #include <string.h>
+#include <wx/image.h>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ struct MyFrame : public wxFrame {
     static int callback(void* data, int argc, char** argv, char** azColName) {
         for (int i = 0; i < argc; i++) {
             *(static_cast<wxString*>(data)) += wxString(argv[i], wxConvUTF8);
+            *(static_cast<wxString*>(data)) += wxString("<br>", wxConvUTF8);
         };
         return 0;
     }
@@ -31,6 +33,8 @@ struct MyFrame : public wxFrame {
         searchCtrl = new wxTextCtrl(panel, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
         searchCtrl->Bind(wxEVT_TEXT_ENTER, &MyFrame::OnSearch, this);
         htmlWindow = new wxHtmlWindow(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxHW_SCROLLBAR_AUTO);
+
+        wxInitAllImageHandlers();
 
         str = new wxString("", wxConvUTF8);
 
@@ -47,7 +51,7 @@ struct MyFrame : public wxFrame {
         rc = sqlite3_exec(db, sql.c_str(), callback, str, &zErrMsg);
 
         if (rc) {
-            htmlWindow->SetPage("<p> failed to open database <p>");
+            htmlWindow->SetPage("<p> Ei suutnud andmebaasi avada. <p>");
         }
     }
 
@@ -57,10 +61,14 @@ struct MyFrame : public wxFrame {
         if (text.length() > 5) {
             str->clear();
             GetSql(text);
-            htmlWindow->SetPage(*str);
+            if (str->length() < 2) {
+                htmlWindow->SetPage("<p> Otsitut ei leitud <p>");
+            }else {
+                htmlWindow->SetPage(*str);
+            }
         }
         else {
-            htmlWindow->SetPage("<p> Try a longer keyword <p>");;
+            htmlWindow->SetPage("<p> Proovi sisestada rohkem tähti <p>");
         }
     }
 
