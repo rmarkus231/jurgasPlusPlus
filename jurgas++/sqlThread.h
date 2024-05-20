@@ -10,15 +10,17 @@
 using namespace std;
 
 struct sqlThread{
-	string* query;
+	wxString* query;
 	int* count;
+	vector<int>* IDs;
 
 	sqlThread();
+	~sqlThread();
 	static int callback(void*, int, char**, char**);
-	void GetSql(wxString, sqlite3*, int, char*, wxHtmlWindow*);
+	void GetSql(int, sqlite3*, int, char*, wxHtmlWindow*);
 	int getCount(sqlite3*);
 	static int countCallback(void*, int, char**, char**);
-	int fillMap(sqlite3*,map<int, wxString>*);
-	static int mapCallback(void*, int, char**, char**);
+	int idByField(sqlite3*,string);
+	static int idByFieldCallback(void*, int, char**, char**);
 };
 #endif // !SQLTHREAD_H

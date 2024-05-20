@@ -1,5 +1,5 @@
 #pragma once
-#include <map>
+#include <vector>
 #include <wx/wx.h>
 #include <wx/html/htmlwin.h>
 #include "sqlite/sqlite3.h"
@@ -15,9 +15,8 @@ struct MyFrame : public wxFrame {
     wxPanel* panel;
     wxTextCtrl* searchCtrl;
     wxBoxSizer* sizer;
-    sqlThread* sqth;
 
-    map<int, wxString>* content;
+    vector<wxString*>* content;
 
     sqlite3* db;
     char* zErrMsg = nullptr;
@@ -28,7 +27,7 @@ struct MyFrame : public wxFrame {
     void initContent();
 };
 
-int loadTask(sqlThread*&, sqlite3*, map<int, wxString>*);
+int threadTaskID(sqlThread*&, string, sqlite3*);
 int countTask(sqlThread*&,sqlite3*);
-int threadTask(sqlThread*&, wxString, sqlite3*, int, char*, wxHtmlWindow*&);
+int threadTask(sqlThread*&, int, sqlite3*, int, char*, wxHtmlWindow*&);
 #endif //MYFRAME_H
