@@ -6,7 +6,7 @@
 using namespace std;
 
 sqlThread::sqlThread() {
-    query = new wxString;
+    query = new string;
     count = new int(0);
     IDs = new vector<int>;
 }
@@ -28,8 +28,8 @@ void sqlThread::GetSql(int id, sqlite3* db, int rc, char* zErrMsg, wxHtmlWindow*
 //data field is query from function above
 int sqlThread::callback(void* data, int argc, char** argv, char** azColName) {
     for (int i = 0; i < argc; i++) {
-        *(reinterpret_cast<wxString*>(data)) += wxString(argv[i], wxConvUTF8);
-        *(reinterpret_cast<wxString*>(data)) += wxString("<br>", wxConvUTF8);
+        *(static_cast<string*>(data)) += argv[i];
+        *(static_cast<string*>(data)) += "<br>";
     };
     return 0;
 }
@@ -51,9 +51,9 @@ int sqlThread::getCount(sqlite3* db) {
 }
 
 int sqlThread::idByField(sqlite3* db, string text) {
-    string sql = "SELECT content FROM questions WHERE id LIKE \'%" + text + "%\';";
+    string sql = "SELECT id FROM questions WHERE question LIKE \'%" + text + "%\';";
     char* zErrMsg = 0;
-    int rc = sqlite3_exec(db, sql.c_str(), idByFieldCallback, &IDs, &zErrMsg);
+    int rc = sqlite3_exec(db, sql.c_str(), idByFieldCallback, IDs, &zErrMsg);
     if (rc != SQLITE_OK) {
         return 1;
     }
@@ -64,7 +64,7 @@ int sqlThread::idByField(sqlite3* db, string text) {
 
 int sqlThread::idByFieldCallback(void* data, int argc, char** argv, char** azColName) {
     for (int i = 0; i < argc; i++) {
-        reinterpret_cast<vector<int>*>(data)->push_back(stoi(argv[i]));
+        (static_cast<vector<int>*>(data))->push_back(stoi(argv[i]));
     };
     return 0;
 }

@@ -104,7 +104,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -130,7 +130,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>

@@ -1,6 +1,8 @@
 #include "MyFrame.h"
 #include "sqlThread.h"
 #include <thread>
+#include <fstream>
+#include <wx/utils.h>
 
 using namespace std;
 
@@ -54,9 +56,26 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
             htmlWindow->SetPage("<p> Otsitut ei leitud <p>");
         }
         else {
-            htmlWindow->SetPage("");
-            for (int it : *(sqth->IDs)) {
-                htmlWindow->AppendToPage(*content->at(it));
+            vector<int>::iterator it;
+            try {
+                ofstream htmlFile;
+                string file = "temp.html";
+                htmlFile.open(file, ios::out);
+                htmlFile << "<!DOCTYPE html>\n<html lang = \"en\">\n<head>\n<meta charset = \"UTF-8\" />\n<title>Jurgas++</title>\n</head>\n<body>";
+                for (it = sqth->IDs->begin(); it != sqth->IDs->end();it++) {
+                    htmlFile << *(content->at(*it));
+                }
+                htmlFile << "</body>\n</html>";
+                htmlFile.close();
+
+                //fuck this embeded html loading, slow as SHIT, html file with text compiled in ms
+                // page loaded in MINUTES
+                //htmlWindow->LoadFile(wxString(file));
+                wxLaunchDefaultBrowser(wxString(file));
+            }
+            catch (exception& e) {
+                //sqth->IDs containing out of range values for questions
+                auto error = e;
             }
         }
         delete sqth;
@@ -79,35 +98,43 @@ void MyFrame::initContent() {
     int c = *(sqth->count);
     delete sqth;
 
-    content = new vector<wxString*>(c);
+    content = new vector<string*>(c+1);
 
     //gonna use n threads to load stuff into memory
     //no idea if this is the most efficient way but i dont want to create ~3200 threads at once, 
     //seems like a bad idea
-    int threads = 5;
-    for (int i = 0; i < c - c % threads; i++) {
-        vector<sqlThread*> sqlThreadVec;
-        vector<thread> threadVec;
-        for (int j = 0; j < threads; j++) {
-            sqlThreadVec.push_back(new sqlThread());
+    int threads = 20;
+    //declare variables for inner loops so i can use them in VS memory view incase of error
+    int j, k, l, m, n;
+
+    //forgot to add the division part, you try debugging multithreaded seqfaults
+    for (int i = 0; i < (c - (c % threads)) / threads; i++) {
+        try {
+            vector<sqlThread*> sqlThreadVec;
+            vector<thread> threadVec;
+            for (j = 0; j < threads; j++) {
+                sqlThreadVec.push_back(new sqlThread());
+            }
+            for (k = 0; k < threads; k++) {
+                threadVec.push_back(thread(threadTask, ref(sqlThreadVec[k]), i * threads + k, db, rc, zErrMsg, ref(htmlWindow)));
+            }
+            for (l = 0; l < threads; l++) {
+                threadVec[l].join();
+            }
+            for (m = 0; m < threads; m++) {
+                content->at(i * threads + m) = new string(*(sqlThreadVec[m]->query));
+            }
+            for (n = 0; n < threads; n++) {
+                //remember to clean up after yourself
+                delete sqlThreadVec[n];
+            }
         }
-        for (int k = 0; k < threads; k++) {
-            threadVec.push_back(thread(threadTask, ref(sqlThreadVec[k]), i * threads + k, db, rc, zErrMsg, ref(htmlWindow)));
-        }
-        for (int l = 0; l < threads; l++) {
-            threadVec[l].join();
-        }
-        for (int m = 0; m < threads; m++) {
-            content->at(i * threads + m) = new wxString(*(sqlThreadVec[m]->query));
-        }
-        for (int n = 0; n < threads; n++) {
-            //remember to clean up after yourself
-            delete sqlThreadVec[n];
+        catch (exception& e) {
+            auto error = e;
         }
     }
     //deal with rest of the questions being loaded incase its not
     //divisible by thread count
-    /*
     for (int i = c - c % threads; i < c; i++) {
         sqlThread* sqt = new sqlThread();
         thread th(threadTask, ref(sqt), i, db, rc, zErrMsg, ref(htmlWindow));
@@ -115,5 +142,4 @@ void MyFrame::initContent() {
         content->at(i) = sqt->query;
         delete sqt;
     }
-    */
 }

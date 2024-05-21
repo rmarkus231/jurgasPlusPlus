@@ -3,14 +3,13 @@
 #include <wx/wx.h>
 #include <wx/html/htmlwin.h>
 #include "sqlite/sqlite3.h"
-#include <map>
 
 #ifndef SQLTHREAD_H
 #define SQLTHREAD_H
 using namespace std;
 
 struct sqlThread{
-	wxString* query;
+	string* query;
 	int* count;
 	vector<int>* IDs;
 

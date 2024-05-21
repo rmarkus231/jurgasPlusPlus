@@ -16,7 +16,7 @@ struct MyFrame : public wxFrame {
     wxTextCtrl* searchCtrl;
     wxBoxSizer* sizer;
 
-    vector<wxString*>* content;
+    vector<string*>* content;
 
     sqlite3* db;
     char* zErrMsg = nullptr;
