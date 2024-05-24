@@ -40,7 +40,7 @@ int sqlThread::countCallback(void *count, int argc, char** argv, char** azColNam
 }
 
 int sqlThread::getCount(sqlite3* db) {
-    string sql = "SELECT count(*) FROM questions;";
+    string sql = "SELECT max(id) FROM questions;";
     char* zErrMsg = 0;
     int rc = sqlite3_exec(db, sql.c_str(), countCallback, count, &zErrMsg);
     if (rc != SQLITE_OK) {

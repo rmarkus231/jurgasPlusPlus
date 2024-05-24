@@ -57,21 +57,26 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
         }
         else {
             vector<int>::iterator it;
-            try {
-                ofstream htmlFile;
-                string file = "temp.html";
-                htmlFile.open(file, ios::out);
-                htmlFile << "<!DOCTYPE html>\n<html lang = \"en\">\n<head>\n<meta charset = \"UTF-8\" />\n<title>Jurgas++</title>\n</head>\n<body>";
-                for (it = sqth->IDs->begin(); it != sqth->IDs->end();it++) {
+            ofstream htmlFile;
+            string file = "temp.html";
+            htmlFile.open(file, ios::out);
+            htmlFile << "<!DOCTYPE html>\n<html lang = \"en\">\n<head>\n<meta charset = \"UTF-8\" />\n<title>Jurgas++</title>\n</head>\n<body>";
+            for (it = sqth->IDs->begin(); it != sqth->IDs->end();it++){
+                try {
                     htmlFile << *(content->at(*it));
                 }
-                htmlFile << "</body>\n</html>";
-                htmlFile.close();
+                catch (exception& e) {
+                    auto error = e;
+                }
+            }
+            htmlFile << "</body>\n</html>";
+            htmlFile.close();
 
-                //fuck this embeded html loading, slow as SHIT, html file with text compiled in ms
-                // page loaded in MINUTES
-                //htmlWindow->LoadFile(wxString(file));
-                wxLaunchDefaultBrowser(wxString(file));
+            //fuck this embeded html loading, slow as SHIT, html file with text compiled in ms
+            // page loaded in MINUTES
+            //htmlWindow->LoadFile(wxString(file));
+            try{ 
+                wxLaunchDefaultBrowser(wxString(file)); 
             }
             catch (exception& e) {
                 //sqth->IDs containing out of range values for questions
