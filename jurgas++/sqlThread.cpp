@@ -1,4 +1,3 @@
-#pragma once
 #include "sqlThread.h"
 #include "sqlite/sqlite3.h"
 #include <vector>
@@ -18,7 +17,7 @@ sqlThread::~sqlThread() {
 }
 
 void sqlThread::GetSql(int id, sqlite3* db, int rc, char* zErrMsg, wxHtmlWindow* win) {
-    string sql = "SELECT content FROM questions WHERE id LIKE \'%" + to_string(id) + "%\';";
+    string sql = "SELECT content FROM questions WHERE id IS " + to_string(id) + ";";
     rc = sqlite3_exec(db, sql.c_str(), callback, query, &zErrMsg);
     if (rc) {
         win->SetPage("<p> Ei suutnud andmebaasi avada. <p>");

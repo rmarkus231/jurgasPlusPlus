@@ -64,7 +64,8 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
                     htmlFile << *(content->at(*it));
                 }
                 catch (exception& e) {
-                    auto error = e;
+                    htmlWindow->AppendToPage(e.what());
+                    htmlWindow->AppendToPage(wxString("\n"));
                 }
             }
             htmlFile << "</body>\n</html>";
@@ -78,8 +79,8 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
             }
             catch (exception& e) {
                 //sqth->IDs containing out of range values for questions
-                auto error = e;
                 htmlWindow->AppendToPage(e.what());
+                htmlWindow->AppendToPage(wxString("\n"));
             }
         }
         delete sqth;
@@ -107,7 +108,7 @@ void MyFrame::initContent() {
     //gonna use n threads to load stuff into memory
     //no idea if this is the most efficient way but i dont want to create ~3200 threads at once, 
     //seems like a bad idea
-    int threads = 20;
+    int threads = 8;
     //declare variables for inner loops so i can use them in VS memory view incase of error
     int j, k, l, m, n;
 
@@ -134,8 +135,8 @@ void MyFrame::initContent() {
             }
         }
         catch (exception& e) {
-            auto error = e;
             htmlWindow->AppendToPage(e.what());
+            htmlWindow->AppendToPage(wxString("\n"));
         }
     }
     //deal with rest of the questions being loaded incase its not
