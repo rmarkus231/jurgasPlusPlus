@@ -26,7 +26,7 @@ To build with visual studio:
 
 - git clone or get download the .zip
 - download and compile libraries for wxWidgets.
-- link them in the .sln file.
+- link them in the solution file.
 - makesure the runtime environments are set to multitreaded dll and multithreaded dll debug, set to that by defualt but incase it is changed. For a guide on how, I reccomend this [guide](https://www.codtronic.com/blog/windows/building-wxwidgets-applications-using-microsoft-visual-studio/).
 - include wxwidgets directories in the solution and make sure the linker can see the correct dll's.
 
