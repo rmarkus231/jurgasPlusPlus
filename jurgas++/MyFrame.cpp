@@ -30,8 +30,6 @@ MyFrame::MyFrame(const wxString& title)
     searchCtrl->Bind(wxEVT_TEXT_ENTER, &MyFrame::OnSearch, this);
     htmlWindow = new wxHtmlWindow(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxHW_SCROLLBAR_AUTO);
 
-    wxInitAllImageHandlers();
-
     //str = new wxString("", wxConvUTF8);
 
     // Set up a sizer to manage layout
@@ -40,9 +38,9 @@ MyFrame::MyFrame(const wxString& title)
     sizer->Add(htmlWindow, 1, wxEXPAND | wxALL, 5); // Add the htmlWindow to the sizer
 
     panel->SetSizer(sizer); // Set the sizer for the panel
-    htmlWindow->SetPage("<p> Loading DB into memory <p>");
+    htmlWindow->AppendToPage("<p> Loading DB into memory <p>\n");
     initContent();
-    htmlWindow->SetPage("<p> DB loaded <p>");
+    htmlWindow->AppendToPage("<p> DB loaded <p>\n");
 }
 
 void MyFrame::OnSearch(wxCommandEvent& event) {
@@ -53,7 +51,7 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
         thread th(threadTaskID, ref(sqth), text.ToStdString(), db);
         th.join();
         if (sqth->IDs->empty()) {
-            htmlWindow->SetPage("<p> Otsitut ei leitud <p>");
+            htmlWindow->AppendToPage("<p> Otsitut ei leitud <p>\n");
         }
         else {
             vector<int>::iterator it;
@@ -81,12 +79,13 @@ void MyFrame::OnSearch(wxCommandEvent& event) {
             catch (exception& e) {
                 //sqth->IDs containing out of range values for questions
                 auto error = e;
+                htmlWindow->AppendToPage(e.what());
             }
         }
         delete sqth;
     }
     else {
-        htmlWindow->SetPage("<p> Proovi sisestada rohkem tähti <p>");
+        htmlWindow->AppendToPage("<p> Proovi sisestada rohkem tähti <p>\n");
     }
 }
 
@@ -136,6 +135,7 @@ void MyFrame::initContent() {
         }
         catch (exception& e) {
             auto error = e;
+            htmlWindow->AppendToPage(e.what());
         }
     }
     //deal with rest of the questions being loaded incase its not
