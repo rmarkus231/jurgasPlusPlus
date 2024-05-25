@@ -104,7 +104,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;$(SolutionDir)\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -112,7 +112,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
@@ -131,13 +131,13 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;$(SolutionDir)\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <FloatingPointModel>Fast</FloatingPointModel>

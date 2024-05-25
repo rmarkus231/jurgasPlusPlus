@@ -38,7 +38,7 @@ MyFrame::MyFrame(const wxString& title)
     sizer->Add(htmlWindow, 1, wxEXPAND | wxALL, 5); // Add the htmlWindow to the sizer
 
     panel->SetSizer(sizer); // Set the sizer for the panel
-    htmlWindow->AppendToPage("<p> Loading DB into memory <p>\n");
+    htmlWindow->SetPage("<p> Loading DB into memory <p>\n");
     initContent();
     htmlWindow->AppendToPage("<p> DB loaded <p>\n");
 }
