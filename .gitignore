@@ -399,3 +399,4 @@ FodyWeavers.xsd
 *.sln.iml
 /x64/Debug/temp.html
 /jurgas++/jurgasPlusPlus_buildfiles.zip
+/jurgas++/x64/Release
