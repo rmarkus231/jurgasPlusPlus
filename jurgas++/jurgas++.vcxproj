@@ -105,8 +105,8 @@
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
-      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+      <Optimization>MaxSpeed</Optimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -114,6 +114,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -131,14 +132,15 @@
       <PreprocessorDefinitions>WXUSINGDLL</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>C:\wxWidgets-3.2.4\include;C:\Users\User\source\repos\jurgas++\jurgas++\sqlite;C:\Users\admin\source\repos\jurgasPlusPlus\jurgas++\sqlite;C:\wxWidgets-3.2.4\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
